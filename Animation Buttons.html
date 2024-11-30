@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Buttons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      font-family: Arial, sans-serif;
+    }
+
+    .button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-pulse {
+      background-color: #3498db;
+    }
+
+    .button-pulse:hover {
+      animation: pulse 0.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .button-rotate {
+      background-color: #e74c3c;
+    }
+
+    .button-rotate:hover {
+      transform: rotate(5deg);
+    }
+
+    .button-slide-bg {
+      background-color: transparent;
+      border: 2px solid #2ecc71;
+      color: #2ecc71;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-slide-bg:hover {
+      color: white;
+    }
+
+    .button-slide-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 100%;
+      background-color: #2ecc71;
+      transition: left 0.4s;
+    }
+
+    .button-slide-bg:hover::before {
+      left: 0;
+    }
+
+    .button-bounce {
+      background-color: #f39c12;
+    }
+
+    .button-bounce:hover {
+      animation: bounce 0.4s;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .button-fade {
+      background-color: #9b59b6;
+    }
+
+    .button-fade:hover {
+      background-color: #8e44ad;
+    }
+
+    .button-skew {
+      background-color: transparent;
+      border: 2px solid #e67e22;
+      color: #e67e22;
+    }
+
+    .button-skew:hover {
+      transform: skew(-10deg);
+    }
+
+    .button-shadow-lift {
+      background-color: #16a085;
+    }
+
+    .button-shadow-lift:hover {
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-zoom {
+      background-color: #2980b9;
+    }
+
+    .button-zoom:hover {
+      transform: scale(1.1);
+    }
+
+    .button-diagonal-border {
+      background-color: #3498db;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-diagonal-border::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(45deg, transparent, #3498db, transparent);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+
+    .button-diagonal-border:hover::before {
+      transform: translateX(100%);
+    }
+
+    .button-underline-swipe {
+      background: none;
+      color: #34495e;
+      position: relative;
+    }
+
+    .button-underline-swipe::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 0;
+      background-color: #34495e;
+      transition: width 0.4s;
+    }
+
+    .button-underline-swipe:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button button-pulse">Pulse</div>
+  <div class="button button-rotate">Rotate</div>
+  <div class="button button-slide-bg">Slide Background</div>
+  <div class="button button-bounce">Bounce</div>
+  <div class="button button-fade">Fade</div>
+ 
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme with Animated Buttons</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Eye-Catching Dark Animated Background */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Styles */
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* To position the glow effect */
+            overflow: hidden;
+        }
+
+        .button-bounce {
+            background-color: #ff4081; /* Pink */
+        }
+
+        .button-bounce:hover {
+            animation: bounce 0.5s forwards;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        .button-shadow {
+            background-color: #4caf50; /* Green */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-shadow:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .button-glow {
+            background-color: #2196f3; /* Blue */
+        }
+
+        .button-glow:hover {
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.6), 0 0 40px rgba(33, 150, 243, 0.3);
+            transform: scale(1.05);
+        }
+
+        .button-slide {
+            background-color: #673ab7; /* Deep Purple */
+            position: relative;
+        }
+
+        .button-slide::after {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+
+        .button-slide:hover::after {
+            left: 0;
+        }
+
+        .button-rotate {
+            background-color: #3f51b5; /* Indigo */
+            transition: transform 0.5s;
+        }
+
+        .button-rotate:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-6 text-center">
+        <h1 class="text-4xl font-bold mb-6">Eye-Catching Dark Theme</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <button class="button button-bounce">Bounce</button>
+            <button class="button button-shadow">Shadow</button>
+            <button class="button button-glow">Glow</button>
+            <button class="button button-slide">Slide In</button>
+            <button class="button button-rotate">Rotate</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ItGuruSolutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Eye-Catching Dark Animated Background */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Styles */
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* To position the glow effect */
+            overflow: hidden;
+            width: 100%; /* Make buttons full width */
+        }
+
+        /* Blink Border */
+        .button-blink-border {
+            background-color: #ff4081; /* Pink */
+            border: 2px solid transparent;
+        }
+
+        .button-blink-border:hover {
+            animation: blink-border 1s infinite;
+            border: 2px solid #ffffff; /* White */
+        }
+
+        @keyframes blink-border {
+            0%, 100% { border: 2px solid transparent; }
+            50% { border: 2px solid #ffffff; }
+        }
+
+        /* Zoom Border */
+        .button-zoom-border {
+            background-color: #4caf50; /* Green */
+            border: 2px solid transparent;
+        }
+
+        .button-zoom-border:hover {
+            border: 2px solid #ffffff; /* White */
+            transform: scale(1.05);
+        }
+
+        /* Floating Effect */
+        .button-floating {
+            background-color: #2196f3; /* Blue */
+            transition: transform 0.3s ease;
+        }
+
+        .button-floating:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Ripple Effect */
+        .button-ripple {
+            background-color: #673ab7; /* Deep Purple */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .button-ripple::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+            width: 300%;
+            height: 300%;
+            left: 50%;
+            top: 50%;
+            z-index: 0;
+            margin-left: -50%;
+            margin-top: -50%;
+        }
+
+        .button-ripple:hover::after {
+            transform: scale(1);
+        }
+
+        /* 3D Flip Effect */
+        .button-flip {
+            background-color: #3f51b5; /* Indigo */
+            perspective: 1000px;
+        }
+
+        .button-flip .flip-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .button-flip:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .button-flip .front,
+        .button-flip .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .button-flip .back {
+            transform: rotateY(180deg);
+            background-color: #ff5722; /* Orange */
+        }
+
+        /* Shadow Expand Effect */
+        .button-shadow-expand {
+            background-color: #e91e63; /* Dark Pink */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .button-shadow-expand:hover {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-6 text-center">
+        <!-- <h1 class="text-4xl font-bold mb-6">Animation Button</h1> -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <button class="button button-blink-border">Blink Border</button>
+            <button class="button button-zoom-border">Zoom Border</button>
+            <button class="button button-floating">Floating</button>
+            <button class="button button-ripple">Ripple</button>
+            <div class="button button-flip">
+                <div class="flip-card">
+                    <div class="front">3D Flip</div>
+                    <div class="back">Flipped!</div>
+                </div>
+            </div>
+            <button class="button button-shadow-expand">Shadow Expand</button>
+        </div>
+    </div>
+
+</body>
+</html>

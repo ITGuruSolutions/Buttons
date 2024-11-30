@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye-Catching Animated Buttons on Dark Background</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Dark Background with Animated Gradient */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Container */
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* Button Styles */
+        .button {
+            width: 100%;
+            height: 60px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Button Effects */
+
+        /* 1. Neon Glow */
+        .button-neon {
+            background: #141414;
+            color: #00e6e6;
+            box-shadow: 0 0 10px #00e6e6, 0 0 20px #00e6e6, 0 0 30px #00e6e6;
+            transition: box-shadow 0.4s ease;
+        }
+        .button-neon:hover {
+            box-shadow: 0 0 15px #00e6e6, 0 0 30px #00e6e6, 0 0 45px #00e6e6;
+        }
+
+        /* 2. 3D Lifted Effect */
+        .button-3d {
+            background-color: #673ab7; /* Purple */
+            box-shadow: 0 4px #452c99;
+            transform: translateY(-2px);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button-3d:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px #452c99;
+        }
+
+        /* 3. Glow Border */
+        .button-glow-border {
+            background: #232323;
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 0;
+            transition: color 0.3s ease;
+        }
+        .button-glow-border::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #00e0ff, #0028ff, #7a00ff, #ff00c8);
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .button-glow-border:hover::before {
+            opacity: 1;
+        }
+
+        /* 4. Inner Glow */
+        .button-inner-glow {
+            background-color: #282828;
+            color: #00ff99;
+            box-shadow: inset 0 0 10px #00ff99, inset 0 0 20px #00ff99;
+            transition: box-shadow 0.3s;
+        }
+        .button-inner-glow:hover {
+            box-shadow: inset 0 0 20px #00ff99, inset 0 0 40px #00ff99;
+        }
+
+        /* 5. Radial Glow Effect */
+        .button-radial-glow {
+            background: radial-gradient(circle, #ff4d4d, #ff0033);
+            color: #ffffff;
+            box-shadow: 0 0 15px #ff4d4d, 0 0 30px #ff0033;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .button-radial-glow:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff4d4d, 0 0 45px #ff0033;
+        }
+
+
+
+        .buttons-container {
+            display: grid;
+            gap: 20px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* Shimmer Effect Button */
+        .button-shimmer {
+            width: 100%;
+            height: 60px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff3d00, #ff9500);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shimmer Animation */
+        .button-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: skewX(-30deg);
+            transition: all 0.4s ease;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="buttons-container">
+    <button class="button button-neon">Neon Glow</button>
+    <button class="button button-3d">3D Lift</button>
+    <button class="button button-glow-border">Glow Border</button>
+    <button class="button button-inner-glow">Inner Glow</button>
+    <button class="button button-radial-glow">Radial Glow</button>
+    <button class="button-shimmer">Shimmer Effect</button>
+</div>
+
+</body>
+</html>

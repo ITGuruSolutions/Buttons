@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Animated Buttons</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Dark Background */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Container */
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* Button Styles */
+
+        /* 1. Horizontal Line Animation */
+        .button-line {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .button-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            transition: left 0.5s ease;
+        }
+
+        .button-line:hover::after {
+            left: 100%;
+        }
+
+        /* 2. Color Shift Animation */
+        .button-shift {
+            background-color: #FF9800;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .button-shift:hover {
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        /* 3. Sliding Gradient Animation */
+        .button-gradient {
+            background-color: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: 2px solid transparent;
+            background-image: linear-gradient(45deg, #673AB7, #FFEB3B);
+            background-size: 400% 400%;
+            transition: background-position 0.4s ease;
+            cursor: pointer;
+        }
+
+        .button-gradient:hover {
+            background-position: 100% 100%;
+        }
+
+        /* 4. Squash Bounce Animation */
+        .button-squash {
+            background-color: #009688;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            animation: squashBounce 1s infinite;
+        }
+
+        @keyframes squashBounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1, 0.9);
+            }
+        }
+
+        /* 5. Wobble Animation */
+        .button-wobble {
+            background-color: #E91E63;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            animation: wobble 1s ease infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(10deg);
+            }
+            50% {
+                transform: rotate(-10deg);
+            }
+            75% {
+                transform: rotate(5deg);
+            }
+        }
+
+        /* 6. Shadow Bounce Animation */
+        .button-shadow {
+            background-color: #FFC107;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="buttons-container">
+    <!-- Button 1: Horizontal Line Animation -->
+    <button class="button button-line">Horizontal Line</button>
+    
+    <!-- Button 2: Color Shift -->
+    <button class="button button-shift">Color Shift</button>
+
+    <!-- Button 3: Sliding Gradient -->
+    <button class="button button-gradient">Gradient Slide</button>
+
+    <!-- Button 4: Squash Bounce -->
+    <button class="button button-squash">Squash Bounce</button>
+
+    <!-- Button 5: Wobble Effect -->
+    <button class="button button-wobble">Wobble Effect</button>
+
+    <!-- Button 6: Shadow Bounce -->
+    <button class="button button-shadow">Shadow Bounce</button>
+</div>
+
+</body>
+</html>

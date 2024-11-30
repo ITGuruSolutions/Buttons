@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme with Animated Buttons</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Eye-Catching Dark Animated Background */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            75% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button Styles */
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            position: relative; /* To position the glow effect */
+            overflow: hidden;
+            width: 100%; /* Make buttons full width */
+        }
+
+        /* Diagonal Tilt Effect */
+        .button-diagonal-tilt {
+            background-color: #ff4081; /* Pink */
+            transform: skewX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .button-diagonal-tilt:hover {
+            transform: skewX(-10deg);
+        }
+
+        /* Slide from Bottom Effect */
+        .button-slide-bottom {
+            background-color: #4caf50; /* Green */
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .button-slide-bottom:hover {
+            transform: translateY(0);
+        }
+
+        /* Border Hover Effect */
+        .button-border-hover {
+            background-color: #2196f3; /* Blue */
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .button-border-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+            transition: all 0.3s ease;
+            transform: scale(0);
+            border-radius: 0.5rem;
+        }
+
+        .button-border-hover:hover::before {
+            transform: scale(1);
+        }
+
+        /* Stretch Text Effect */
+        .button-stretch-text {
+            background-color: #673ab7; /* Deep Purple */
+            overflow: hidden;
+        }
+
+        .button-stretch-text span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .button-stretch-text:hover span {
+            transform: scale(1.2);
+        }
+
+        /* Inner Shadow Effect */
+        .button-inner-shadow {
+            background-color: #3f51b5; /* Indigo */
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .button-inner-shadow:hover {
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Tilt Effect */
+        .button-tilt {
+            background-color: #e91e63; /* Dark Pink */
+            transform: rotate(0);
+            transition: transform 0.3s ease;
+        }
+
+        .button-tilt:hover {
+            transform: rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-6 text-center">
+        <h1 class="text-4xl font-bold mb-6">Animation Button</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <button class="button button-diagonal-tilt">Diagonal Tilt</button>
+            <button class="button button-slide-bottom">Slide from Bottom</button>
+            <button class="button button-border-hover">Border Hover</button>
+            <button class="button button-stretch-text"><span>Stretch Text</span></button>
+            <button class="button button-inner-shadow">Inner Shadow</button>
+            <button class="button button-tilt">Tilt</button> <!-- New tilt button -->
+        </div>
+    </div>
+
+</body>
+</html>
